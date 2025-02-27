@@ -46,7 +46,7 @@ export default function LoginForm() {
           type="email"
           id="email"
           {...register("email")}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="mt-1 block w-full p-1 rounded-md border-gray-300 text-black"
         />
         {errors.email && (
           <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -63,7 +63,7 @@ export default function LoginForm() {
           type="password"
           id="password"
           {...register("password")}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="mt-1 block w-full p-1 rounded-md border-gray-300 text-black"
         />
         {errors.password && (
           <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>

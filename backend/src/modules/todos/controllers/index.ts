@@ -48,10 +48,6 @@ const getTodosController = async (
     })
   );
 
-  if (todos.length === 0) {
-    return next(new AppError("No todos found", HTTP_STATUS.NOT_FOUND));
-  }
-
   if (error) {
     return next(new AppError(error.message, HTTP_STATUS.SERVER_ERROR));
   }

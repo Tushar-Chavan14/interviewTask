@@ -27,13 +27,13 @@ export const useAuthStore = create<AuthStore>()(
           if (req.status === 200) {
             set({
               isAuthenticated: true,
-              token: req.data.jwtToken,
-              user: req.data.user,
+              token: req.data?.data.jwtToken,
+              user: req.data?.dara?.user,
             });
           }
         } catch (error) {}
       },
-      logout: () => set({ isAuthenticated: false, user: null }),
+      logout: () => set({ isAuthenticated: false, token: null, user: null }),
     }),
     {
       name: "auth-storage",
