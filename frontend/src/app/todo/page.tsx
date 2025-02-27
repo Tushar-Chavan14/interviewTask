@@ -1,23 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { useTodoStore } from "../store/todoStore";
-import { useAuthStore } from "../store/authStore";
 import TodoForm from "@src/components/TodoForm";
 import TodoList from "@src/components/TodoList";
+import { useEffect } from "react";
+import { useAuthStore } from "../store/authStore";
+import { useTodoStore } from "../store/todoStore";
 
 export default function TodoPage() {
-  const router = useRouter();
-  const { isAuthenticated, token } = useAuthStore();
+  const { token } = useAuthStore();
   const { todos, addTodo, getTodos, updateTodo, deleteTodo } = useTodoStore();
-
-  useEffect(() => {
-    console.log(isAuthenticated)
-    if (!isAuthenticated) {
-      router.push("/login");
-    }
-  }, [isAuthenticated]);
 
   useEffect(() => {
     (async () => {
@@ -26,10 +17,6 @@ export default function TodoPage() {
       }
     })();
   }, []);
-
-  if (!isAuthenticated) {
-    return null;
-  }
 
   return (
     <div className="container mx-auto px-4 py-8">
